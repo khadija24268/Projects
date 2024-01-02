@@ -1,14 +1,26 @@
-# Flight-Ticket Management System
+# Flight Ticket Management System
 
-Welcome to the Flight-Ticket Management System repository! This C++ project focuses on efficient flight-ticket management using data structures and provides a command-line interface for various operations. The system reads and stores data from a CSV file, uses a hash table for efficient retrieval, and offers functionality to manage flight tickets.
+Welcome to the Flight Ticket Management System repository! This C++ project focuses on efficient flight ticket management using data structures and provides a command-line interface for various operations. The system reads and stores data from a CSV file, uses a hash table for efficient retrieval, and offers functionality to manage flight tickets.
+
+## Table of Contents
+
+- [Features](#features)
+  - [Data Storage and Retrieval](#1-data-storage-and-retrieval)
+  - [Command-Line Interface](#2-command-line-interface)
+  - [Flight Ticket Operations](#3-flight-ticket-operations)
+  - [Comprehensive Data Structure](#4-comprehensive-data-structure)
+  - [File Handling](#5-file-handling)
+  - [Error Handling](#6-error-handling)
+  - [Professional Documentation](#7-professional-documentation)
+- [Usage](#usage)
 
 ## Features
 
 ### 1. Data Storage and Retrieval
 
-- **CSV Import and Export:** Import flight-tickets from a CSV file and export them back in ascending order.
+- **CSV Import and Export:** Import flight tickets from a CSV file and export them back in ascending order.
   
-- **Hash Table:** Utilizes a hash table to efficiently store and retrieve flight-ticket details.
+- **Hash Table:** Utilizes a hash table to efficiently store and retrieve flight ticket details.
 
 ### 2. Command-Line Interface
 
@@ -16,13 +28,13 @@ Welcome to the Flight-Ticket Management System repository! This C++ project focu
 
 - **Collision Tracking:** Provides the ability to count and display the number of collisions in the hash table.
 
-### 3. Flight-Ticket Operations
+### 3. Flight Ticket Operations
 
-- **Add and Delete:** Add new flight-tickets to the system and delete existing ones.
+- **Add and Delete:** Add new flight tickets to the system and delete existing ones.
 
-- **Find and Display:** Find and display flight-tickets based on the flight number and company name.
+- **Find and Display:** Find and display flight tickets based on the flight number and company name.
 
-- **All-in-Day Display:** Display all flight-tickets for a given date.
+- **All-in-Day Display:** Display all flight tickets for a given date.
 
 ### 4. Comprehensive Data Structure
 
@@ -32,7 +44,7 @@ Welcome to the Flight-Ticket Management System repository! This C++ project focu
 
 ### 5. File Handling
 
-- **CSV Import/Export:** Load flight-tickets from and export them to CSV files, maintaining data integrity.
+- **CSV Import/Export:** Load flight tickets from and export them to CSV files, maintaining data integrity.
 
 ### 6. Error Handling
 
@@ -44,8 +56,9 @@ Welcome to the Flight-Ticket Management System repository! This C++ project focu
 
 ## Usage
 
-To get started, clone the repository and compile the code using a C++ compiler. Execute the compiled binary and use the provided commands to interact with the Flight-Ticket Management System.
+To get started, clone the repository and compile the code using a C++ compiler. Execute the compiled binary and use the provided commands to interact with the Flight Ticket Management System.
 
 ```bash
 $ g++ main.cpp -o FlightTicketSystem
 $ ./FlightTicketSystem
+```
