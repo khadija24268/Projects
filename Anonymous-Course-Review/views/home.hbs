@@ -1,0 +1,59 @@
+
+    <form action="/" method="get" class="form-container">
+        
+        <input type="text" id="tag" name="semester" placeholder="Search by Semester">
+
+        
+        <input type="text" id="title" name="year" placeholder="Search by Year">
+
+        <input type="text" id="title" name="professor" placeholder="Search by Professor">
+
+        <button type="button" id="clearButton" onclick="window.location.href='/'">Clear All</button>
+        <button type="submit" id="searchButton">Search</button>
+    </form>
+
+<body>
+    <h1>All Reviews</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Course Number</th>
+                <th>Course Name</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Professor Name</th>
+                <th>Review Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each Review}}
+                <tr>
+                    <td>{{courseNumber}}</td>
+                    <td>{{courseName}}</td>
+                    <td>{{semester}}</td>
+                    <td>{{year}}</td>
+                    <td>{{professor}}</td>
+                    <td>{{review}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
