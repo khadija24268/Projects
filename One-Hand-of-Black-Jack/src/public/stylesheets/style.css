@@ -1,0 +1,131 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0; /* Set your desired background color */
+}
+
+form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+label {
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+#startValues {
+  padding: 10px; /* Increase padding for a bigger text box */
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+.playBtn {
+  padding: 10px 20px; /* Add padding for a larger button */
+  background-color: #007BFF; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.playBtn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hand {
+  display: flex;
+  flex-direction: row; /* Ensure cards are displayed horizontally */
+  align-items: center;
+  position: relative;
+  margin-bottom: 50px; /* Add space between each hand */
+}
+
+.total {
+  position: absolute;
+  top: -35px; /* Adjust the vertical position to move the text above the cards */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+
+
+.card {
+  width: 100px; /* Set your desired width */
+  height: 160px; /* Set twice the width to achieve a 1:2 ratio */
+  border: 1px solid #000; /* Set your desired card border style */
+  border-radius: 5px;
+  margin: 0 10px; /* Increase the horizontal margin between cards */
+  padding: 5px;
+  background-color: #fff; /* Set your desired card background color */
+}
+
+.computer .card {
+  margin-right: 20px; /* Add more margin between computer cards and player cards */
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between; /* Spread the buttons out */
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px; /* Add padding for a larger button */
+  margin-right: 10px; /* Add margin between buttons */
+  background-color: #87CEFA; /* Light blue fill */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:last-child {
+  margin-right: 0; /* Remove margin for the last button */
+}
+
+button:hover {
+  background-color: #6495ED; /* Darker blue on hover */
+}
+
+.result {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.card,
+.face-down {
+  width: 100px; /* Set your desired width */
+  height: 160px; /* Set twice the width to achieve a 1:2 ratio */
+  background-color: #fff; /* Set your desired background color for face-up card */
+  border: 1px solid #000; /* Set your desired card border style */
+  border-radius: 5px;
+  margin: 0 10px; /* Adjust the horizontal margin as needed */
+  padding: 5px;
+  display: flex;
+  flex-direction: column; /* Stack value and suit vertically */
+  align-items: center;
+  justify-content: center;
+}
+
+.face-down {
+  background-color: #ccc; /* Set your desired background color for face-down card */
+}
+
+.card span,
+.face-down span {
+  font-size: 14px;
+}
+
+
