@@ -46,6 +46,7 @@ void listCommands()
     "help               :Display the available commands"
     "exit               :Exit the program"
 }
+```
 
 # Features
 
