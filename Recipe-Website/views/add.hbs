@@ -1,0 +1,144 @@
+<!-- add.hbs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(247, 245, 245); 
+            font-family: 'Caveat', cursive;
+        }
+
+        .form-control {
+            background-color: beige;
+            text-align: center;
+        }
+
+        .form-group label {
+            font-size: 20px;
+        }
+
+        .btn-primary {
+            background-color: #a86868; 
+            border-color: #a86868;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+
+<body class="container mt-5">
+    <h2>Add New Recipe</h2>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Recipe Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
+        </div>
+
+        <div class="form-group" id="ingredients-container">
+            <div class="ingredient-input form-row">
+                <div class="col">
+                    <label for="ingredient-name">Name:</label>
+                    <input type="text" class="form-control" name="ingredients[name][]" required>
+                </div>
+                <div class="col">
+                    <label for="ingredient-quantity">Quantity:</label>
+                    <input type="number" class="form-control" name="ingredients[quantity][]" required>
+                </div>
+                <div class="col">
+                    <label for="ingredient-unit">Unit:</label>
+                    <input type="text" class="form-control" name="ingredients[unit][]" required>
+                </div>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button type="button" class="btn btn-primary" id="add-ingredient">Add Ingredient</button>
+        </div>
+
+        <div class="form-group" id="instructions-container">
+            <div class="instruction-input form-row">
+                <div class="col">
+                    <label for="instruction-number">Number:</label>
+                    <input type="number" class="form-control" name="instructions[number][]" required>
+                </div>
+                <div class="col">
+                    <label for="instruction-details">Details:</label>
+                    <textarea class="form-control" name="instructions[details][]" required></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button type="button" class="btn btn-primary" id="add-instruction">Add Instruction</button>
+        </div>
+
+        <div class="form-group">
+            <label for="tags">Tags (comma-separated):</label>
+            <input type="text" class="form-control" id="tags" name="tags">
+        </div>
+
+        <div class="form-group">
+            <label for="photos">Upload Pictures:</label>
+            <input type="file" class="form-control-file" id="photos" name="photos" accept="image/*" multiple>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Recipe</button>
+    </form>
+
+    <script>
+        // JavaScript to dynamically add ingredient and instruction input fields
+        document.getElementById('add-ingredient').addEventListener('click', function () {
+            var ingredientsContainer = document.getElementById('ingredients-container');
+            var ingredientInputs = document.createElement('div');
+            ingredientInputs.classList.add('ingredient-input', 'form-row');
+            ingredientInputs.innerHTML = `
+                <div class="col">
+                    <label for="ingredient-name">Name:</label>
+                    <input type="text" class="form-control" name="ingredients[name][]" required>
+                </div>
+                <div class="col">
+                    <label for="ingredient-quantity">Quantity:</label>
+                    <input type="number" class="form-control" name="ingredients[quantity][]" required>
+                </div>
+                <div class="col">
+                    <label for="ingredient-unit">Unit:</label>
+                    <input type="text" class="form-control" name="ingredients[unit][]" required>
+                </div>
+            `;
+            ingredientsContainer.appendChild(ingredientInputs);
+        });
+
+        document.getElementById('add-instruction').addEventListener('click', function () {
+            var instructionsContainer = document.getElementById('instructions-container');
+            var instructionInputs = document.createElement('div');
+            instructionInputs.classList.add('instruction-input', 'form-row');
+            instructionInputs.innerHTML = `
+                <div class="col">
+                    <label for="instruction-number">Number:</label>
+                    <input type="number" class="form-control" name="instructions[number][]" required>
+                </div>
+                <div class="col">
+                    <label for="instruction-details">Details:</label>
+                    <textarea class="form-control" name="instructions[details][]" required></textarea>
+                </div>
+            `;
+            instructionsContainer.appendChild(instructionInputs);
+        });
+    </script>
+
+
+</body>
+
+</html>

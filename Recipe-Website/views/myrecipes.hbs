@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(247, 245, 245); 
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 50px; 
+            font: 2.5em 'Caveat', cursive;
+        }
+
+
+        .recipe-name-link {
+            color: #008080; 
+            text-decoration: none;
+        }
+        .card,
+        .recipe-block {
+            margin-bottom: 20px;
+            border-radius: 10px ;
+        }
+
+        .recipe-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .recipe-title {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .recipe-tags {
+            font-size: 14px;
+            color: #6c757d; /* Bootstrap text-secondary color */
+        }
+
+        #filterForm {
+            text-align: center;
+        }
+
+        .recipe-tags{
+            font-size: 14px;
+            color: #6c757d; /* Bootstrap text-secondary color */
+        }
+
+        #tags {
+            width: 400px;
+            margin: 0 auto; 
+            display: block; 
+            text-align: center; 
+            background-color: rgb(244, 244, 231);
+        }
+  
+        #filterBtn,
+        #clearFilterBtn {
+            margin-left: 10px; 
+        }
+        #filterForm,
+        #filterForm label,
+        #filterForm input,
+        #filterForm button {
+            font-family: 'Caveat', cursive;
+            font-size: large;
+        }
+        #filterBtn{
+            background-color: #a86868; 
+            border-color: #a86868;
+            color: white; 
+        }
+
+        .btn-primary {
+            background-color: #a86868; 
+            border-color: #a86868;
+        }
+ 
+    </style>
+</head>
+
+<body class="container mt-5">
+     <div class="row">
+        {{#each recipes}}
+        <div class="col-md-6 col-lg-6 recipe-block" data-tags="{{tags}}">
+            <div class="card">
+                <a href="/recipe/{{this.name}}" class="recipe-name-link">
+                    {{#if this.photos.length}} <!-- Check if photos exist for the recipe -->
+                        <img src="{{this.photos.[0].dataUrl}}" alt="{{this.photos.[0].alt}}" class="card-img-top recipe-img">
+                    {{else}}
+                        <div class="card-img-top recipe-img placeholder"></div> <!-- You can add a placeholder image or customize as needed -->
+                    {{/if}}
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title recipe-title">{{this.name}}</h5>
+                            <a href="/edit/{{this.name}}" class="btn btn-primary" >Edit</a>
+                        </div>
+                        <p class="card-text recipe-tags">{{this.tags}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+</body>
+
+</html>

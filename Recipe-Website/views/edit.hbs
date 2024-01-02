@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(247, 245, 245);
+            font-family: 'Caveat', cursive;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5em;
+        }
+
+        .form-control {
+            background-color: beige;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 20px;
+        }
+
+        .btn-primary {
+            background-color: #a86868;
+            border-color: #a86868;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end; /* Updated */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="container mt-5">
+    <h2>Edit Recipe</h2>
+    <form action="/edit/{{recipe.name}}" method="POST">
+        <div class="form-group">
+            <label for="name">Recipe Name:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{recipe.name}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" required>{{recipe.description}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="ingredients">Ingredients:</label>
+            <div id="ingredients-container">
+                {{#each recipe.ingredients}}
+                <div class="ingredient-box form-row">
+                    <div class="col">
+                        <label for="ingredients[{{@index}}].name">Ingredient:</label>
+                        <input type="text" class="form-control" name="ingredients[{{@index}}].name"
+                            value="{{this.name}}" required>
+                    </div>
+                    <div class="col">
+                        <label for="ingredients[{{@index}}].quantity">Quantity:</label>
+                        <input type="number" class="form-control" name="ingredients[{{@index}}].quantity"
+                            value="{{this.quantity}}" required>
+                    </div>
+                    <div class="col">
+                        <label for="ingredients[{{@index}}].unit">Unit:</label>
+                        <input type="text" class="form-control" name="ingredients[{{@index}}].unit"
+                            value="{{this.unit}}" required>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <button type="button" class="btn btn-primary" id="add-ingredient">Add Ingredient</button>
+        </div>
+
+        <div class="form-group">
+            <label for="instructions">Instructions:</label>
+            <div id="instructions-container">
+                {{#each recipe.instructions}}
+                <div class="instruction-box form-row">
+                    <div class="col">
+                        <label for="instructions[{{@index}}][number]">Step:</label>
+                        <input type="number" class="form-control" name="instructions[{{@index}}][number]"
+                            value="{{this.stepNumber}}">
+                    </div>
+                    <div class="col">
+                        <label for="instructions[{{@index}}][description]">Text:</label>
+                        <textarea class="form-control"
+                            name="instructions[{{@index}}][description]">{{this.description}}</textarea>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <button type="button" class="btn btn-primary" id="add-instruction">Add Instruction</button>
+        </div>
+
+        <div class="form-group">
+            <label for="tags">Tags (comma-separated):</label>
+            <input type="text" class="form-control" id="tags" name="tags" value="{{formattedTags}}"
+                placeholder="Enter tags">
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+    </form>
+
+    <script>
+        // JavaScript to dynamically add ingredient and instruction input fields
+        document.getElementById('add-ingredient').addEventListener('click', function () {
+            var ingredientsContainer = document.getElementById('ingredients-container');
+            var ingredientInputs = document.createElement('div');
+            ingredientInputs.classList.add('ingredient-box', 'form-row');
+            ingredientInputs.innerHTML = `
+        <div class="col">
+            <label for="ingredients[${ingredientsContainer.children.length}].name">Ingredient:</label>
+            <input type="text" class="form-control" name="ingredients[${ingredientsContainer.children.length}].name" required>
+        </div>
+        <div class="col">
+            <label for="ingredients[${ingredientsContainer.children.length}].quantity">Quantity:</label>
+            <input type="number" class="form-control" name="ingredients[${ingredientsContainer.children.length}].quantity" required>
+        </div>
+        <div class="col">
+            <label for="ingredients[${ingredientsContainer.children.length}].unit">Unit:</label>
+            <input type="text" class="form-control" name="ingredients[${ingredientsContainer.children.length}].unit" required>
+        </div>
+    `;
+            ingredientsContainer.appendChild(ingredientInputs);
+        });
+
+
+        document.getElementById('add-instruction').addEventListener('click', function () {
+            var instructionsContainer = document.getElementById('instructions-container');
+            var instructionInputs = document.createElement('div');
+            instructionInputs.classList.add('instruction-box', 'form-row');
+            instructionInputs.innerHTML = `
+        <div class="col">
+            <label for="instructions[${instructionsContainer.children.length}][number]">Step:</label>
+            <input type="number" class="form-control" name="instructions[${instructionsContainer.children.length}][number]" value="">
+        </div>
+        <div class="col">
+            <label for="instructions[${instructionsContainer.children.length}][description]">Text:</label>
+            <textarea class="form-control" name="instructions[${instructionsContainer.children.length}][description]"></textarea>
+        </div>
+    `;
+            instructionsContainer.appendChild(instructionInputs);
+        });
+    </script>
+
+</body>
+
+</html>

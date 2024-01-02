@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe Realm</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: rgb(247, 245, 245); 
+            padding: 20px;
+
+        }
+        
+        h1 {
+            font-family: 'Caveat',cursive;
+            font-size: 3em;
+            text-align: left;
+            margin-top: 50px;
+            color: beige;
+        }
+
+        .header-bar h1 a {
+            color: inherit; 
+            text-decoration: none; 
+        }
+
+        .header-bar h1 a:hover {
+            text-decoration: underline;
+        }
+        
+        .header-bar {
+            background-color: #a86868; 
+        }
+        .navbar {
+            background-color: #e8cece; 
+        }
+ 
+        .navbar-nav .nav-link {
+            color: #ffffff; 
+            font: 1.2em 'Caveat',cursive;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #935555; 
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header-bar">
+            <div class="container">
+                <h1><a href="/">Recipe Realm</a></h1>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myrecipes">My Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add">Add Recipe</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content" class="container mt-4">
+            {{{ body }}}
+        </div>
+    </div>
+</body>
+
+</html>
