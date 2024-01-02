@@ -1,0 +1,77 @@
+
+
+ <div class="header">
+        <div class="icon">
+            <img src="{{url}}/img/icon.png" alt="Icon" width="50" height="50">
+        </div>
+        <div class="heading">Task Manager</div>
+        <button class="button" onclick="window.location.href='/'">Home</button>
+        <button class="button" onclick="window.location.href='/add'">Add Tasks</button>
+    </div>
+
+    <h1>Filter Tasks</h1>
+
+    <form id="searchForm">
+        
+        <input type="text" id="tag" name="tag" placeholder="Search by Tag">
+
+        
+        <input type="text" id="title" name="title" placeholder="Search by Title">
+
+        <button type="button" id="clearButton" onclick="window.location.href='/'">Clear All</button>
+        <button type="submit" id="searchButton">Search</button>
+    </form>
+
+<body>
+    <h1>Task List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Pinned</th>
+                <th>Progress</th>
+                <th>Title</th>
+                <th>Due Date<a href="{{url}}/?sort-by=due-date&sort-order=asc"> <img src="{{url}}/img/up.png" alt="Icon" width="20" height="20"></a>
+                <a href="{{url}}/?sort-by=due-date&sort-order=desc"> <img src="{{url}}/img/down.png" alt="Icon" width="20" height="20"></a>
+                </th>
+                <th>Priority<a href="{{url}}/?sort-by=priority&sort-order=asc"> <img src="{{url}}/img/up.png" alt="Icon" width="20" height="20"></a>
+                <a href="{{url}}/?sort-by=priority&sort-order=desc"> <img src="{{url}}/img/down.png" alt="Icon" width="20" height="20"></a>
+                </th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+                <tr>
+                    <td>{{#if pinned}}
+                            <img src="{{url}}/img/pin.png" alt="Pin">
+                        {{/if}}</td>
+                    <td>{{progress}}</td>
+                    <td>{{title}}</td>
+                    <td>{{due-date}}</td>
+                    <td>{{priority}}</td>
+                    <td><div class="tags">
+                        {{#each tags}}
+                        <span class="tag">{{this}}</span>
+                    {{/each}}</div></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
